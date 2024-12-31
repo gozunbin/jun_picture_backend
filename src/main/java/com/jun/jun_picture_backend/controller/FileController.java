@@ -104,19 +104,7 @@ public class FileController {
         }
     }
 
-    /**
-     * 上传图片（可重新上传）
-     */
-    @PostMapping("/upload")
-    @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
-    public BaseResponse<PictureVO> uploadPicture(
-            @RequestPart("file") MultipartFile multipartFile,
-            PictureUploadRequest pictureUploadRequest,
-            HttpServletRequest request) {
-        User loginUser = userService.getLoginUser(request);
-        PictureVO pictureVO = pictureService.uploadPicture(multipartFile, pictureUploadRequest, loginUser);
-        return ResultUtils.success(pictureVO);
-    }
+
 
 
 
