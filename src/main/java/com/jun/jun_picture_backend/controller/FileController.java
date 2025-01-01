@@ -33,11 +33,6 @@ public class FileController {
     @Resource
     private CosManager cosManager;
 
-    @Resource
-    private UserService userService;
-
-    @Resource
-    private PictureService pictureService;
 
     /**
      * 测试文件上传
@@ -103,9 +98,6 @@ public class FileController {
             }
         }
     }
-
-
-
 
 
 }
