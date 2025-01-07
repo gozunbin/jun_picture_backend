@@ -3,6 +3,7 @@ package com.jun.jun_picture_backend.service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.jun.jun_picture_backend.api.aliyunai.model.CreateOutPaintingTaskResponse;
 import com.jun.jun_picture_backend.model.dto.picture.*;
 import com.jun.jun_picture_backend.model.entity.Picture;
 import com.jun.jun_picture_backend.model.entity.User;
@@ -116,5 +117,18 @@ public interface PictureService extends IService<Picture> {
      */
     List<PictureVO> searchPictureByColor(Long spaceId, String picColor, User loginUser);
 
+    /**
+     * 批量编辑图片
+     * @param pictureEditByBatchRequest
+     * @param loginUser
+     */
     void editPictureByBatch(PictureEditByBatchRequest pictureEditByBatchRequest, User loginUser);
+
+    /**
+     * 创建扩图任务
+     * @param createPictureOutPaintingTaskRequest
+     * @param loginUser
+     * @return
+     */
+    CreateOutPaintingTaskResponse createPictureOutPaintingTask(CreatePictureOutPaintingTaskRequest createPictureOutPaintingTaskRequest, User loginUser);
 }

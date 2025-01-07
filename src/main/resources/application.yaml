@@ -52,4 +52,4 @@ knife4j:
         api-rule: package
         api-rule-resources:
           - com.jun.jun_picture_backend.controller
-
+          -
