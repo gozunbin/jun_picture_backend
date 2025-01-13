@@ -144,6 +144,7 @@ public class SpaceController {
         User loginUser = userService.getLoginUser(request);
         List<String> permissionList = spaceUserAuthManager.getPermissionList(space, loginUser);
         spaceVO.setPermissionList(permissionList);
+        spaceVO.setSpaceType(1);
         // 获取封装类
         // ！！！！ 这行从早上搞到现在18：14分 2025/1/10，没有把设置好的permissionList返回给前端
 //        return ResultUtils.success(spaceService.getSpaceVO(space, request));
