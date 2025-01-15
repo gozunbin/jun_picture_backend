@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.jun</groupId>
-    <artifactId>jun_picture_backend</artifactId>
+    <artifactId>jun_picture_backend_ddd</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>jun_picture_backend</name>
-    <description>jun_picture_backend</description>
+    <name>jun_picture_backend_ddd</name>
+    <description>jun_picture_backend_ddd</description>
     <properties>
         <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

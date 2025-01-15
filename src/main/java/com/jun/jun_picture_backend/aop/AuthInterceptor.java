@@ -30,9 +30,9 @@ public class AuthInterceptor {
      * @param joinPoint 切入点
      * @param authCheck 权限校验注解
      */
-    @Around("@annotation(authCheck)")
+    @Around("@annotation(authCheck)") // authCheck 是通过 ProceedingJoinPoint 和注解 @AuthCheck 的结合来传递的。
     public Object doInterceptor(ProceedingJoinPoint joinPoint, AuthCheck authCheck) throws Throwable {
-        String mustRole = authCheck.mustRole();
+        String mustRole = authCheck.mustRole(); // authCheck 是注解 @AuthCheck 的实例，它的属性值（如 mustRole）会通过反射传递给 doInterceptor 方法。
         RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
         HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
         // 当前登录用户
@@ -50,6 +50,7 @@ public class AuthInterceptor {
             throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
         }
         // 要求必须有管理员权限，但用户没有管理员权限，拒绝
+        // 如果 mustRoleEnum 是管理员角色，并且 当前用户的角色不是管理员角色，那么条件判断成立
         if (UserRoleEnum.ADMIN.equals(mustRoleEnum) && !UserRoleEnum.ADMIN.equals(userRoleEnum)) {
             throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
         }
